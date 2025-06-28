@@ -1,9 +1,16 @@
 package br.com.alura.dominio;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class Abrigo {
 
-    public Abrigo(){}
-    public Abrigo(String nome,String telefone,String email){
+    public Abrigo(String nome, String telefone, String email){
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
@@ -15,43 +22,4 @@ public class Abrigo {
     private String email;
     private Pet[] pets;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Pet[] getPets() {
-        return pets;
-    }
-
-    public void setPets(Pet[] pets) {
-        this.pets = pets;
-    }
 }
