@@ -70,7 +70,14 @@ public class PetService {
             String cor = campos[4];
             Float peso = Float.parseFloat(campos[5]);
 
-            Pet pet = new Pet(1,tipo.toUpperCase(),nome,raca,idade,cor,peso);
+            Pet pet = new Pet();
+            pet.setTipo(tipo);
+            pet.setNome(nome);
+            pet.setRaca(raca);
+            pet.setIdade(idade);
+            pet.setCor(cor);
+            pet.setPeso(peso);
+
             String uri = "http://localhost:8080/abrigos/" + idOuNome + "/pets";
             HttpResponse<String> response = httpService.post(uri,pet);
 

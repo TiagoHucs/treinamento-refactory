@@ -28,7 +28,7 @@ public class HttpService {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(uri))
                 .header("Content-Type", "application/json")
-                .method("PATCH", HttpRequest.BodyPublishers.ofString(new Gson().toJson(object)))
+                .method("POST", HttpRequest.BodyPublishers.ofString(new Gson().toJson(object)))
                 .build();
 
         return client.send(request, HttpResponse.BodyHandlers.ofString());

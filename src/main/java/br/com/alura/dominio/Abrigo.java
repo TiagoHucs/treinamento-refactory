@@ -2,13 +2,7 @@ package br.com.alura.dominio;
 
 public class Abrigo {
 
-    public Abrigo(long id, String nome,String telefone,String email, Pet[] pets){
-        this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
-        this.pets = pets;
-    }
-
+    public Abrigo(){}
     public Abrigo(String nome,String telefone,String email){
         this.nome = nome;
         this.telefone = telefone;
@@ -51,5 +45,13 @@ public class Abrigo {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Pet[] getPets() {
+        return pets;
+    }
+
+    public void setPets(Pet[] pets) {
+        this.pets = pets;
     }
 }
