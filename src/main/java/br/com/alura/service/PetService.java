@@ -1,6 +1,7 @@
 package br.com.alura.service;
 
 import br.com.alura.client.HttpService;
+import br.com.alura.constants.AppConstants;
 import br.com.alura.dominio.Abrigo;
 import br.com.alura.dominio.Pet;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,7 +30,7 @@ public class PetService {
         System.out.println("Digite o id ou nome do abrigo:");
         String idOuNome = new Scanner(System.in).nextLine();
 
-        String uri = "http://localhost:8080/abrigos/" +idOuNome +"/pets";
+        String uri = String.format(AppConstants.URI_PETS, idOuNome);
         HttpResponse<String> response = httpService.get(uri);
 
         int statusCode = response.statusCode();
@@ -72,7 +73,7 @@ public class PetService {
 
             Pet pet = new Pet(tipo,nome,raca,idade,cor,peso);
 
-            String uri = "http://localhost:8080/abrigos/" + idOuNome + "/pets";
+            String uri = String.format(AppConstants.URI_PETS, idOuNome);
             HttpResponse<String> response = httpService.post(uri,pet);
 
             int statusCode = response.statusCode();

@@ -1,12 +1,9 @@
 package br.com.alura.service;
 
 import br.com.alura.client.HttpService;
+import br.com.alura.constants.AppConstants;
 import br.com.alura.dominio.Abrigo;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import java.io.IOException;
 import java.net.http.HttpResponse;
@@ -18,8 +15,8 @@ public class AbrigoService {
 
     HttpService httpService;
 
-    public AbrigoService(){
-        httpService = new HttpService();
+    public AbrigoService(HttpService httpService){
+        this.httpService = httpService;
     }
 
     public  void cadastrarAbrigo() throws IOException, InterruptedException {
@@ -30,7 +27,7 @@ public class AbrigoService {
         System.out.println("Digite o email do abrigo:");
         String email = new Scanner(System.in).nextLine();
 
-        String uri = "http://localhost:8080/abrigos";
+        String uri = AppConstants.URI_ABRIGOS;
         HttpResponse<String> response = httpService.post(uri,new Abrigo(nome,telefone,email));
 
         int statusCode = response.statusCode();
