@@ -37,7 +37,7 @@ public class PetService {
         Pet[] petArray = new ObjectMapper().readValue(responseBody,Pet[].class);
         List<Pet> petList = Arrays.stream(petArray).toList();
 
-        System.out.println("Pets cadastrados:");
+        System.out.println(AppConstants.TIT_PETS_CADASTR);
         for (Pet pet : petList) {
             System.out.println(pet.toString());
         }

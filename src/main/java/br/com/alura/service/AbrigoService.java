@@ -43,13 +43,20 @@ public class AbrigoService {
 
     public void listarAbrigos() throws IOException, InterruptedException {
 
-        String uri = "http://localhost:8080/abrigos";
-        HttpResponse<String> response = httpService.get(uri);
+        HttpResponse<String> response = httpService.get(AppConstants.URI_ABRIGOS);
         String responseBody = response.body();
         Abrigo[] abrigos = new ObjectMapper().readValue(responseBody,Abrigo[].class);
         List<Abrigo> abrigoList = Arrays.stream(abrigos).toList();
 
-        System.out.println("Abrigos cadastrados:");
+        if(abrigoList.isEmpty()){
+            System.out.println(AppConstants.MSG_N_ABRIG_CADASTR);
+        } else {
+            mostrarAbrigosCadastrados(abrigoList);
+        }
+    }
+
+    private static void mostrarAbrigosCadastrados(List<Abrigo> abrigoList) {
+        System.out.println(AppConstants.TIT_ABRIG_CADASTR);
         for (Abrigo abrigo : abrigoList) {
             long id = abrigo.getId();
             String nome = abrigo.getNome();
