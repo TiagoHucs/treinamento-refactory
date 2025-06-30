@@ -1,9 +1,7 @@
 package br.com.alura.service;
 
 import br.com.alura.client.HttpService;
-import br.com.alura.constants.AppConstants;
 import br.com.alura.dominio.Abrigo;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,8 +11,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.http.HttpResponse;
-import java.util.Arrays;
-import java.util.List;
 
 class AbrigoServiceTest {
 
