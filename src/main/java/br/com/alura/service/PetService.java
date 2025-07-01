@@ -17,8 +17,8 @@ public class PetService {
 
     HttpService httpService;
 
-    public PetService(){
-        httpService = new HttpService();
+    public PetService(HttpService httpService){
+        this.httpService = httpService;
     }
 
     public void listarPetsAbrigo() throws IOException, InterruptedException {
